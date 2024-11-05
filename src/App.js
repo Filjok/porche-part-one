@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 import './App.scss';
@@ -7,10 +7,15 @@ import columnOne from './media/images/image.png'
 import gtrsTextImage from './media/images/gtrsTextImage.png'
 import textabsoluteImage from './media/images/text-absolute-car-image.png'
 import loopvideo from './media/videos/loopPorche-video.mp4';
-
 import topviewimage from './media/images/top-view-image.png'
+import fullCarImage from './media/images/porche-full-car-image.png'
+import porcheBackImage from './media/images/porche-back-car-image.png'
 
 function App() {
+
+    const [videoOne, setvideoOne] = useState(false)
+    const [videoTwo, setvideoTwo] = useState(false)
+
   return (
     <section className='main-container'>
 
@@ -18,7 +23,7 @@ function App() {
 
         <div className='grid-template-wrapper'>
 
-          <div className='gird-col-one'>
+          <div className='grid-items gird-col-one'>
             <img
               src={columnOne}
               alt='sf'
@@ -27,12 +32,12 @@ function App() {
 
 
           </div>
-          <div className='gird-col-two'>
+          <div className={`grid-items  gird-col-two ${ videoOne? 'videoOne' :""}`} onClick={()=>{setvideoOne(!videoOne)}}>
 
             <div className='main-video-wrapper'>
 
 
-              <video muted loop autoplay playsInline controls  >
+              <video muted loop autoplay playsInline   >
 
                 <source src={videoMain}  ></source>
               </video>
@@ -45,9 +50,16 @@ function App() {
             </div>
 
           </div>
-          <div className='gird-col-three'>3</div>
+          <div className='grid-items gird-col-three '>
 
-          <div className='gird-col-four'>
+            <div className='car-image'>
+              <img
+                src={porcheBackImage}
+              />
+            </div>
+          </div>
+
+          <div className='grid-items gird-col-four'>
 
             <div className='image-div'>
               <img src={topviewimage} />
@@ -67,14 +79,31 @@ function App() {
 
           </div>
 
-          <div className='gird-col-five'>
-            <div>
+          <div className='grid-items gird-col-five'>
 
+
+
+            <div className='bg-image-wrapper'>
+
+              <div className='car-full-image-wrapper'>
+                <img
+                  src={fullCarImage}
+                />
+              </div>
+              <div>
+                <h6>
+                  518 hp
+                </h6>
+                <h2>
+                  horse
+                  <br></br> power
+                </h2>
+              </div>
             </div>
 
           </div>
 
-          <div className='gird-col-six'>
+          <div className='grid-items gird-col-six'>
             <img
               src={gtrsTextImage}
             />
@@ -85,9 +114,9 @@ function App() {
               />
             </div>
           </div>
-          <div className='gird-col-seven'>
+          <div className={`grid-items gird-col-seven ${ videoTwo? 'videoTwo' :""}`} onClick={()=>{setvideoTwo(!videoTwo)}}>
 
-            <video muted loop autoplay playsInline controls>
+            <video muted loop autoplay playsInline >
 
               <source src={loopvideo}></source>
 

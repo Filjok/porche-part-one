@@ -1,3 +1,28 @@
+
+@font-face{
+	font-family: "bigger";
+	src: url('./media/fonts/BiggerDisplay.otf') format('opentype');
+	font-style: normal;
+}
+@font-face {
+	font-family: 'porche-normal';
+	src: url('./media/fonts/911porschav3.ttf');
+	font-style: normal;
+}
+@font-face {
+	font-family: 'porche-italic';
+	src: url('./media/fonts/911porschav3ital.ttf');
+}
+@font-face {
+	font-family: 'proche-line-through';
+	src: url('./media/fonts/911porschav3laserital.ttf');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Noto+Kufi+Arabic:wght@100..900&display=swap');
+
+
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,

@@ -4,6 +4,10 @@
   padding: 10px;
   box-sizing: border-box;
 
+  img {
+    pointer-events: none;
+  }
+
   .outer-wrapper {
     background-color: #1c1818;
     width: 100%;
@@ -26,15 +30,30 @@
       position: relative;
       z-index: 10;
 
-      >div {
-        background-color: rgba(255, 255, 255, 0.597);
+      .grid-items {
+
         border-radius: 28px;
         position: relative;
+        cursor: crosshair;
+        transition:  .4s ease-in-out;
+ 
       }
 
+      &:has(.videoOne){
+        .gird-col-one, .gird-col-three, .gird-col-four, .gird-col-five ,.gird-col-six ,.gird-col-seven{
+          display: none;
+        }
+      }
+      &:has(.videoTwo){
+        .gird-col-one, .gird-col-three, .gird-col-four, .gird-col-five ,.gird-col-six ,.gird-col-two{
+          display: none;
+        }
+      }
 
       .gird-col-one {
         grid-area: 1 / 1 / 9 / 4;
+
+        
 
         img {
           width: 100%;
@@ -86,6 +105,32 @@
 
       .gird-col-three {
         grid-area: 9 / 1 / 13 / 4;
+
+        background-image: url('./media/images/race-track-image.png');
+        background-size: cover;
+        background-position: right;
+
+        &:hover {
+          .car-image {
+            right: -74px;
+          }
+
+        }
+
+
+        .car-image {
+          position: absolute;
+          z-index: 50;
+          width: 420px;
+          top: -40px;
+          right: -84px;
+          filter: drop-shadow(3px 3px 29px #000);
+          transition: all .3s ease-in-out;
+
+          img {
+            width: 100%;
+          }
+        }
       }
 
       .gird-col-four {
@@ -95,21 +140,34 @@
         padding-block: 30px;
         padding-left: 10px;
 
+        &:hover {
+          .image-div {
+            scale: .7;
+            rotate: -90deg;
+            left: 40px;
+
+          }
+        }
+
         .text-div {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           height: 100%;
         }
-        .image-div{
+
+        .image-div {
           position: absolute;
           width: 100%;
           height: 100%;
           top: 0;
           left: 0;
           z-index: 10;
+          pointer-events: none;
+          transition: all .4s ease-in-out;
 
-          img{
+
+          img {
             position: absolute;
             max-width: 850px;
             left: 20%;
@@ -119,17 +177,17 @@
         }
 
         h3 {
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-family: 'bigger';
           text-transform: uppercase;
           font-weight: 900;
-          font-size: 40px;
+          font-size: 100px;
           color: #fff;
           margin-left: -20px;
           text-align: left;
         }
 
         h6 {
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-family: 'bigger';
           text-transform: uppercase;
           font-weight: 500;
           font-size: 16px;
@@ -137,10 +195,10 @@
         }
 
         h4 {
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-family: 'bigger';
           text-transform: uppercase;
           font-weight: 900;
-          font-size: 40px;
+          font-size: 86px;
           color: #fff;
           margin-left: -20px;
           text-align: right;
@@ -160,13 +218,90 @@
         grid-template-columns: repeat(4, 1fr);
         overflow: hidden;
         gap: 20px;
+        position: relative;
 
 
-        >div {
+
+        .car-full-image-wrapper {
+          position: absolute;
+          z-index: 50;
+          top: 50%;
+          transform: translateY(-20%);
+          left: 100px;
+        }
+
+
+
+
+
+        .bg-image-wrapper {
           grid-area: 1/2/1/5;
-          background-color: rgba(251, 255, 0, 0.577);
           border-radius: 28px;
+          background-image: url('./media/images/full-bg-image.png');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: right;
+          position: relative;
+          transition: all .4s ease-in-out;
 
+          .car-full-image-wrapper {
+            position: absolute;
+            z-index: 50;
+            top: 50%;
+            transform: translateY(-20%);
+            left: -20px;
+            filter: drop-shadow(3px 3px 29px #000);
+
+            transition: all .4s ease-in-out;
+
+
+
+          }
+
+          &:hover {
+            background-position: left;
+
+            >div {
+              left: 50px;
+
+            }
+
+            .car-full-image-wrapper {
+              left: -70px;
+            }
+          }
+
+          >div {
+            position: absolute;
+            left: 20px;
+            right: auto;
+            top: 100px;
+            z-index: 15;
+            transition: all .4s ease-in-out;
+
+
+            h6 {
+              font-family: 'porche-normal';
+              font-size: 38px;
+              color: #fff;
+            }
+
+            h2 {
+              font-family: "Geologica", serif;
+              font-weight: 600;
+              color: #fff;
+              text-transform: uppercase;
+              font-size: 86px;
+              letter-spacing: -7px;
+              line-height: 64px;
+
+            }
+          }
+
+        }
+
+        .bg-image-wrapper:hover+.car-full-image-wrapper {
+          left: 0px !important;
         }
       }
 
@@ -225,4 +360,8 @@
 
 
   }
+}
+
+.videoOne , .videoTwo{
+  grid-area: 1/1/13/15 !important;
 }
